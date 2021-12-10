@@ -67,7 +67,5 @@ def read_sheet(sheet, opendoc_params):
 def read_callback(text):
     content = re.search(r"clientVarsCallback\(\"(.+)\"\)", text).group(1)
     content = content.replace("&#34;", "\"")
-    content = content.replace("\\\\\"", "\"")
-    content = content.replace("\"{", "{")
-    content = content.replace("}\"", "}")
+    content = content.replace(r'\\"', r"\\'")
     return json.loads(content)

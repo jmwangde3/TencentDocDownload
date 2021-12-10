@@ -5,10 +5,12 @@ import download
 if __name__ == '__main__':
     url = input("url: ")
     title, tabs, opendoc_params = download.initial_fetch(url)
+    print("文档名称: %s" % title)
     wb = Workbook()
     for tab in tabs:
         tab_id = tab["id"]
         name = tab["name"]
+        print("正在下载: %s" % name)
         sheet_content, max_col = download.read_sheet(tab_id, opendoc_params)
         row = []
         ws = wb.create_sheet(name)
@@ -23,3 +25,4 @@ if __name__ == '__main__':
     empty_ws = wb["Sheet"]
     wb.remove(empty_ws)
     wb.save('%s.xlsx' % title)
+    print("下载完成，已保存与根目录")
