@@ -1,9 +1,13 @@
-from  openpyxl import  Workbook
+from openpyxl import Workbook
+import sys
 
 import download
 
 if __name__ == '__main__':
-    url = input("url: ")
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+    else:
+        url = input("url: ")
     title, tabs, opendoc_params = download.initial_fetch(url)
     print("文档名称: %s" % title)
     wb = Workbook()
