@@ -9,7 +9,7 @@ pip3 install -r requirements.txt
 ## 运行
 ```shell
 python3 excel.py URL_OF_WORK_SHEET
-python3 excel.py URL_OF_WORK_SHEET cookie_file_path
+python excel.py URL_OF_WORK_SHEET cookie_file_path
 ```
 
 ## 获取cookies
